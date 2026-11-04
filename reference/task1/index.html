@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課堂任務管理器</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-width header-content">
+        <div>
+          <h1>課堂任務管理器</h1>
+        </div>
+        <nav aria-label="版本切換">
+          <a href="vue.html">查看 Vue 版本</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-width">
+      <section class="panel" aria-labelledby="add-heading">
+        <h2 id="add-heading">新增任務</h2>
+        <form id="task-form" class="task-form" novalidate>
+          <label for="task-input">任務內容</label>
+          <div class="input-row">
+            <input
+              id="task-input"
+              name="task"
+              type="text"
+              maxlength="200"
+              autocomplete="off"
+              aria-describedby="form-message"
+              required
+            >
+            <button class="add-button" type="submit">新增任務</button>
+          </div>
+          <p id="form-message" class="form-message" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </section>
+
+      <!-- 重要語意區：任務清單與操作狀態集中在這個 section。 -->
+      <section class="panel task-panel" aria-labelledby="list-heading">
+        <div class="section-heading">
+          <h2 id="list-heading">任務清單</h2>
+          <div class="filters" aria-label="篩選任務">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="filter-button" type="button" data-filter="pending" aria-pressed="false">未完成</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">已完成</button>
+          </div>
+        </div>
+
+        <p id="empty-state" class="empty-state">目前沒有任務</p>
+        <ul id="task-list" class="task-list" aria-label="任務"></ul>
+
+        <div id="stats" class="stats" aria-label="任務統計">
+          <p>總數 <strong id="total-count">0</strong></p>
+          <p>未完成 <strong id="pending-count">0</strong></p>
+          <p>已完成 <strong id="completed-count">0</strong></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

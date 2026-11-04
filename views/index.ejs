@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>課堂任務管理器 II</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header header-content page-width">
+    <div><p class="eyebrow">WEB APP 課堂實作 II</p><h1>課堂任務管理器</h1></div>
+    <span class="version-badge">Node.js · Express · EJS</span>
+  </header>
+  <main class="page-width">
+    <section class="panel" aria-labelledby="add-heading">
+      <h2 id="add-heading">新增任務</h2>
+      <form class="task-form" action="/tasks" method="post">
+        <input type="hidden" name="filter" value="<%= filter %>">
+        <label for="task-input">任務內容</label>
+        <div class="input-row">
+          <input id="task-input" name="name" type="text" maxlength="200" value="<%= input %>" placeholder="輸入任務內容..." required>
+          <button class="add-button" type="submit">新增任務</button>
+        </div>
+      </form>
+      <p class="form-message<%= isError ? ' error' : '' %>" role="status" aria-live="polite"><%= message %></p>
+    </section>
+    <section class="panel task-panel" aria-labelledby="list-heading">
+      <div class="section-heading">
+        <h2 id="list-heading">任務清單</h2>
+        <nav class="filters" aria-label="篩選任務">
+          <% for (const [key, label] of Object.entries(filterLabels)) { %>
+            <a class="filter-button" href="/?filter=<%= key %>"<% if (filter === key) { %> aria-current="page"<% } %>><%= label %></a>
+          <% } %>
+        </nav>
+      </div>
+      <p class="hint">勾選或取消勾選後，按「更新」儲存完成狀態。</p>
+      <% if (tasks.length === 0) { %>
+        <p class="empty-state"><%= total === 0 ? '目前沒有任務，新增第一項吧。' : '目前沒有符合此篩選的任務。' %></p>
+      <% } %>
+      <ul class="task-list" aria-label="任務">
+        <% for (const task of tasks) { %>
+          <li class="task-item<%= task.completed ? ' completed' : '' %>" data-task-id="<%= task.id %>">
+            <form class="task-update" action="/tasks/<%= task.id %>/update" method="post">
+              <input type="hidden" name="filter" value="<%= filter %>">
+              <label class="task-check">
+                <input type="checkbox" name="completed"<% if (task.completed) { %> checked<% } %> aria-label="完成任務：<%= task.name %>">
+                <span class="task-name"><%= task.name %></span>
+              </label>
+              <button class="update-button" type="submit" aria-label="更新任務：<%= task.name %>">更新</button>
+            </form>
+            <form action="/tasks/<%= task.id %>/delete" method="post">
+              <input type="hidden" name="filter" value="<%= filter %>">
+              <button class="delete-button" type="submit" aria-label="刪除任務：<%= task.name %>">刪除</button>
+            </form>
+          </li>
+        <% } %>
+      </ul>
+      <div class="stats" aria-label="任務統計">
+        <p>總數 <strong id="total-count"><%= total %></strong></p>
+        <p>未完成 <strong id="pending-count"><%= pendingCount %></strong></p>
+        <p>已完成 <strong id="completed-count"><%= completedCount %></strong></p>
+      </div>
+    </section>
+    <p class="footer-note">資料暫存在伺服器記憶體；重新整理會保留，伺服器重啟後清空。</p>
+  </main>
+</body>
+</html>

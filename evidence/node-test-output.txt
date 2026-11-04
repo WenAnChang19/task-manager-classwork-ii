@@ -1,0 +1,20 @@
+
+> task-manager-classwork-ii@1.0.0 test
+> node --test test/*.test.js
+
+✔ A3：空清單正常顯示，HTML 由伺服器直接輸出 (50.637584ms)
+✔ A3：新增 trim、303 redirect，刷新 GET 不會重複新增 (15.282833ms)
+✔ 拒絕空白、過長及重複欄位輸入 (5.63575ms)
+✔ 完成、重送更新與取消完成：狀態及整體統計正確 (5.439375ms)
+✔ 篩選只改顯示，篩選後依固定 ID 刪除指定同名任務 (10.133083ms)
+✔ 不存在及無效的 ID 不會誤刪資料；無效篩選退回全部 (6.471ms)
+✔ HTML 名稱安全跳脫，不能插入 script 或 img (2.728208ms)
+✔ 重新建立伺服器陣列會清空；未知頁面回傳 404 (2.900333ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.48525

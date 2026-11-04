@@ -1,0 +1,1 @@
+SELECT c.CustomerID, c.CustomerName, c.Country, o.OrderID, o.OrderDate, p.ProductID, p.ProductName, p.Price, od.Quantity FROM Customers AS c INNER JOIN Orders AS o ON c.CustomerID=o.CustomerID INNER JOIN OrderDetails AS od ON o.OrderID=od.OrderID INNER JOIN Products AS p ON od.ProductID=p.ProductID ORDER BY o.OrderID, p.ProductID;

@@ -1,0 +1,73 @@
+{
+  "executedAt": "2026-11-04T06:37:14.820Z",
+  "executor": "Codex 透過 in-app Chromium 瀏覽器實際操作",
+  "mobileRuntime": "not_performed: viewport override did not change the actual 1280px viewport",
+  "tests": [
+    {
+      "id": "UI01",
+      "action": "開啟空清單",
+      "actual": "HTTP 200，顯示無任務，統計 0/0/0",
+      "result": "PASS"
+    },
+    {
+      "id": "UI02",
+      "action": "新增任務",
+      "actual": "新增成功，統計 1/1/0",
+      "result": "PASS"
+    },
+    {
+      "id": "UI03",
+      "action": "查看三項任務",
+      "actual": "三項皆顯示，統計 3/3/0",
+      "result": "PASS"
+    },
+    {
+      "id": "UI04",
+      "action": "勾選後按更新",
+      "actual": "勾選時統計仍 3/3/0；送出後 3/2/1",
+      "result": "PASS"
+    },
+    {
+      "id": "UI05",
+      "action": "篩選已完成",
+      "actual": "只顯示 JavaScript 練習，整體統計仍 3/2/1",
+      "result": "PASS"
+    },
+    {
+      "id": "UI06",
+      "action": "在篩選後刪除指定任務",
+      "actual": "只刪除 JavaScript 練習，其他兩項保留，統計 2/2/0",
+      "result": "PASS"
+    },
+    {
+      "id": "UI07",
+      "action": "重新整理",
+      "actual": "任務仍保留，沒有重複新增",
+      "result": "PASS"
+    },
+    {
+      "id": "UI08",
+      "action": "純空白任務",
+      "actual": "後端拒絕並顯示提示，兩項任務保留",
+      "result": "PASS"
+    },
+    {
+      "id": "UI09",
+      "action": "篩選未完成",
+      "actual": "顯示兩項未完成任務",
+      "result": "PASS"
+    },
+    {
+      "id": "UI10",
+      "action": "完成與取消完成並保留篩選",
+      "actual": "任務隨狀態移出目前篩選；取消後完成數為 0",
+      "result": "PASS"
+    },
+    {
+      "id": "UI11",
+      "action": "桌面長任務名稱",
+      "actual": "實際 viewport 1280px，長名稱換行且無水平溢出；手機尺寸覆寫未生效，未宣稱手機實測通過",
+      "result": "PASS"
+    }
+  ]
+}

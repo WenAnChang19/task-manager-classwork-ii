@@ -1,0 +1,13 @@
+{
+  "name": "task-manager-classwork-ii",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web App 個人課堂實作 II：Express / EJS 任務管理器與 SQL 查詢",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "express": "^5.1.0", "ejs": "^3.1.10" }
+}

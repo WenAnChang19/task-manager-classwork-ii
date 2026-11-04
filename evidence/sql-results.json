@@ -1,0 +1,147 @@
+[
+  {
+    "id": "B1",
+    "sql": "SELECT c.CustomerID, c.CustomerName,\n       SUM(p.Price * od.Quantity) AS TotalSpent\nFROM Customers AS c\nINNER JOIN Orders AS o ON c.CustomerID = o.CustomerID\nINNER JOIN OrderDetails AS od ON o.OrderID = od.OrderID\nINNER JOIN Products AS p ON od.ProductID = p.ProductID\nWHERE c.Country = 'France'\nGROUP BY c.CustomerID, c.CustomerName\nORDER BY TotalSpent DESC, c.CustomerID ASC;\n",
+    "rows": [
+      [
+        "CustomerID",
+        "CustomerName",
+        "TotalSpent"
+      ],
+      [
+        "7",
+        "Blondel père et fils",
+        "15253.75"
+      ],
+      [
+        "9",
+        "Bon app",
+        "5256.35"
+      ],
+      [
+        "41",
+        "La maison dAsie",
+        "4826.75"
+      ],
+      [
+        "23",
+        "Folies gourmandes",
+        "2030.20"
+      ],
+      [
+        "84",
+        "Victuailles en stock",
+        "1020.50"
+      ],
+      [
+        "85",
+        "Vins et alcools Chevalier",
+        "825.60"
+      ],
+      [
+        "18",
+        "Du monde entier",
+        "336.00"
+      ]
+    ],
+    "executedAt": "2026-11-04T06:32:12.518Z"
+  },
+  {
+    "id": "B2",
+    "sql": "SELECT TOP 5 p.ProductID, p.ProductName,\n       SUM(od.Quantity) AS Quantity\nFROM Products AS p\nINNER JOIN OrderDetails AS od ON p.ProductID = od.ProductID\nINNER JOIN Orders AS o ON od.OrderID = o.OrderID\nWHERE o.OrderDate >= '1996-07-01'\n  AND o.OrderDate < '1996-08-01'\nGROUP BY p.ProductID, p.ProductName\nORDER BY Quantity DESC, p.ProductID ASC;\n",
+    "rows": [
+      [
+        "ProductID",
+        "ProductName",
+        "Quantity"
+      ],
+      [
+        "2",
+        "Chang",
+        "105"
+      ],
+      [
+        "59",
+        "Raclette Courdavault",
+        "100"
+      ],
+      [
+        "16",
+        "Pavlova",
+        "95"
+      ],
+      [
+        "33",
+        "Geitost",
+        "85"
+      ],
+      [
+        "5",
+        "Chef Antons Gumbo Mix",
+        "77"
+      ]
+    ],
+    "executedAt": "2026-11-04T06:32:57.604Z"
+  },
+  {
+    "id": "B3",
+    "sql": "SELECT c.CustomerID, c.CustomerName, o.OrderDate,\n       od.Quantity AS Quantity\nFROM Customers AS c\nINNER JOIN Orders AS o ON c.CustomerID = o.CustomerID\nINNER JOIN OrderDetails AS od ON o.OrderID = od.OrderID\nINNER JOIN Products AS p ON od.ProductID = p.ProductID\nWHERE p.ProductName = 'Tofu'\nORDER BY c.CustomerID ASC, o.OrderDate ASC, o.OrderID ASC;\n",
+    "rows": [
+      [
+        "CustomerID",
+        "CustomerName",
+        "OrderDate",
+        "Quantity"
+      ],
+      [
+        "36",
+        "Hungry Coyote Import Store",
+        "1996-12-06",
+        "15"
+      ],
+      [
+        "39",
+        "Königlich Essen",
+        "1996-10-09",
+        "9"
+      ],
+      [
+        "54",
+        "Océano Atlántico Ltda.",
+        "1997-01-09",
+        "12"
+      ],
+      [
+        "59",
+        "Piccolo und mehr",
+        "1997-01-27",
+        "35"
+      ],
+      [
+        "71",
+        "Save-a-lot Markets",
+        "1996-12-25",
+        "42"
+      ],
+      [
+        "81",
+        "Tradição Hipermercados",
+        "1996-07-05",
+        "9"
+      ],
+      [
+        "87",
+        "Wartian Herkku",
+        "1996-10-18",
+        "10"
+      ],
+      [
+        "87",
+        "Wartian Herkku",
+        "1997-01-13",
+        "20"
+      ]
+    ],
+    "executedAt": "2026-11-04T06:33:35.541Z"
+  }
+]

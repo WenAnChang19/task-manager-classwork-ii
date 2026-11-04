@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "node_http_tests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "browser_tests": {
+      "passed": 11,
+      "mobile_runtime": "not_performed"
+    },
+    "sql": {
+      "B1": "PASS",
+      "B2": "PASS",
+      "B3": "PASS",
+      "detail_rows": 518
+    },
+    "zip": {
+      "contains_node_modules": false,
+      "fresh_npm_ci": "PASS",
+      "extracted_http_tests": "8 PASS"
+    },
+    "pdf": {
+      "render": "performed",
+      "visual_qa": "performed by Codex",
+      "human_review": "not_performed"
+    },
+    "student_reflection_confirmation": "not_performed"
+  },
+  "outputs": {
+    "output/pdf/B13901163_WebApp_II_Report.pdf": {
+      "bytes": 1134315,
+      "sha256": "ce036bba372d00b7aa278effad40f23b9b7e959ddee79669ee25dcc3feb0cd4a"
+    },
+    "output/zip/B13901163_WebApp_II_Code.zip": {
+      "bytes": 18813,
+      "sha256": "89cc3d85a79a93ab8b816873f01b044afc051d34ef5b4029e44d3258dc81c448"
+    }
+  }
+}
