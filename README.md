@@ -11,7 +11,7 @@ npm ci
 npm start
 ```
 
-瀏覽器開啟 http://localhost:2234 。伺服器只監聽本機介面，port 固定 2234。=
+瀏覽器開啟 http://localhost:2234 。伺服器只監聽本機介面，port 固定 2234。
 
 ## 功能
 
