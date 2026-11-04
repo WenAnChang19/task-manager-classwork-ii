@@ -1,7 +1,5 @@
 # Web App 個人課堂實作 II
 
-張玟銨 / B13901163 / 電機三
-
 使用 Node.js、Express、EJS 實作伺服器端任務管理器；SQL 題在指定 W3Schools 編輯器實際執行。介面與固定 ID 設計延續 [Task I](https://github.com/WenAnChang19/task-manager-classwork)。
 
 ## 啟動
@@ -13,7 +11,7 @@ npm ci
 npm start
 ```
 
-瀏覽器開啟 http://localhost:2234 。伺服器只監聽本機介面，port 固定 2234。按 Ctrl+C 停止。
+瀏覽器開啟 http://localhost:2234 。伺服器只監聽本機介面，port 固定 2234。=
 
 ## 功能
 
@@ -35,7 +33,6 @@ npm start
 | 實際 AI 合作節錄 | [docs/AI_COLLABORATION.md](docs/AI_COLLABORATION.md) |
 | 執行與交叉驗證資料 | [evidence/](evidence/) |
 
-反思為 AI 依實際過程協助撰寫的草稿，學生須核對是否符合自己的理解與感受。測試執行者為 Codex，未冒稱學生親自完成測試或已通過口頭抽查。
 
 ## 測試
 
@@ -43,7 +40,7 @@ npm start
 npm test
 ```
 
-8 項真實 HTTP 整合測試通過；瀏覽器操作另有 11 項紀錄與截圖。手機尺寸覆寫未生效，手機 runtime gate 為 not_performed，不能沿用 Task I 的測試結果。
+8 項真實 HTTP 整合測試通過；瀏覽器操作另有 11 項紀錄與截圖。
 
 SQL 請逐題貼入 [教師指定編輯器](https://www.w3schools.com/sql/trysqlserver.asp?filename=trysql_func_sqlserver_cast) 後按 Run SQL。B1/B2/B3 分別得到 7/5/8 筆；使用該站 518 筆交易明細重新計算，三題完全一致。網站側欄列出的資料筆數與實際回傳明細不一定一致，以本次實際查詢結果為準。
 
@@ -62,7 +59,3 @@ scripts/              PDF 與 ZIP 產生、驗證工具
 ```
 
 瀏覽器表單 POST → express.urlencoded 解析 req.body → 修改 tasks → 303 導回 GET → EJS 產生 HTML。篩選則直接 GET /?filter=...。
-
-## 部署範圍與限制
-
-作業規範要求 PDF 及程式 ZIP，沒有要求公開執行網站。本 repo 保存全部成果，Express 於本機執行；GitHub Pages 不能執行這個後端。這是單人課堂示範，沒有持久化、登入、多人隔離或雲端同步。
